@@ -5,6 +5,7 @@ public class VehicleWithEngine  extends Vehicle {
     private int maxAutonomy;
 
 
+    @Override
     public int getAutonomy(){
         return autonomy;
     }

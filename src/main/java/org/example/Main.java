@@ -3,6 +3,9 @@ package org.example;
 import org.example.cars.Car;
 import org.example.motorbikes.Motorbike;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -23,5 +26,12 @@ public class Main {
 
         Bicycle bicycle = new Bicycle("Vélo");
         System.out.printf("%s : pas d'autonomie, il a ses jambes\n", bicycle.getName());
+
+        List<Vehicle> allVehicle = List.of(clio, tesla, zero, bicycle);
+
+        for (int i = 0; i < allVehicle.size(); i++){
+            Vehicle vehicle = allVehicle.get(i);
+            System.out.println(vehicle.getName() + vehicle.drive(80));
+        }
     }
 }
