@@ -27,14 +27,16 @@ public class VehicleWithEngine  extends Vehicle {
         this.setMaxAutonomy(maxAutonomy);
     }
 
-    public String getTypeOfEngine(){
-        String vehicleWithEngine = this.getClass().getSuperclass().getSimpleName();
-        if (vehicleWithEngine.equals("ThermalVehicle")){
-            return "thermal";
-        } else {
-            return "electric";
+    @Override
+    public String drive(int km) {
+        if (km >= autonomy){
+            return getName() + " Pas assez d'autonomie";
         }
+        autonomy -= km;
+        return getName() + " roule sur " + km;
     }
+
+
 
 
 }

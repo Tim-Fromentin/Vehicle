@@ -20,11 +20,13 @@ public class Main {
         Station stationTours = new Station("Station de tours");
 
         ThermalCar clio = new ThermalCar("Clio", 150, 700);
-        System.out.printf("%s : %s km au départ, %s max, essence %s.\n", clio.getName(), clio.getAutonomy(), clio.getMaxAutonomy(), clio.getTypeOfEngine());
-        stationTours.fillUpVehicle(clio);
-        System.out.printf("%s : %s km au départ, %s max, essence %s.\n", clio.getName(), clio.getAutonomy(), clio.getMaxAutonomy(), clio.getTypeOfEngine());
+//        System.out.printf("%s : %s km au départ, %s max, essence.\n", clio.getName(), clio.getAutonomy(), clio.getMaxAutonomy());
+//        stationTours.fillUpVehicle(clio);
+//        System.out.printf("%s : %s km au départ, %s max, essence.\n", clio.getName(), clio.getAutonomy(), clio.getMaxAutonomy());
 
         ElectricCar tesla = new ElectricCar("Tesla", 80, 500);
+//        System.out.printf("%s : %s km au départ, %s max, autonomie\n", tesla.getName(), tesla.getAutonomy(), tesla.getMaxAutonomy());
+//        stationTours.charge(tesla);
 //        System.out.printf("%s : %s km au départ, %s max, autonomie\n", tesla.getName(), tesla.getAutonomy(), tesla.getMaxAutonomy());
 
         ThermalMotorbike zero = new ThermalMotorbike("Zero", 120, 180);
@@ -34,17 +36,19 @@ public class Main {
 //        System.out.printf("%s : pas d'autonomie, il a ses jambes\n", bicycle.getName());
 
         List<Vehicle> allVehicle = List.of(clio, tesla, zero, bicycle);
-        List<VehicleWithEngine> allVehicleWithEngine = List.of(clio, tesla, zero);
+        List<ThermalVehicle> allVehicleWithThermalEngine = List.of(clio, zero);
         for (int i = 0; i < allVehicle.size(); i++){
             Vehicle vehicle = allVehicle.get(i);
-            System.out.println(vehicle.getName() + vehicle.drive(80));
+            System.out.println(vehicle.drive(80));
         }
-
-
-        for (int i = 0; i < allVehicleWithEngine.size(); i++){
-            VehicleWithEngine vehicle = allVehicleWithEngine.get(i);
-            System.out.println(stationTours.fillUpVehicle(vehicle));
-        }
+//
+//
+//        for (int i = 0; i < allVehicleWithThermalEngine.size(); i++){
+//            ThermalVehicle vehicle = allVehicleWithThermalEngine.get(i);
+//            System.out.println("avant" + vehicle.getAutonomy());
+//            stationTours.fuel(vehicle);
+//            System.out.println("apres" + vehicle.getAutonomy());
+//        }
 
 
     }

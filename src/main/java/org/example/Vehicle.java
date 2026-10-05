@@ -5,14 +5,11 @@ public abstract class Vehicle {
 
 
     public int getAutonomy() {
-        return -1;
+        return 0;
     }
 
     public String drive(int km) {
-        String vehicleWithEngine = this.getClass().getSuperclass().getSimpleName();
-        if (km >= getAutonomy() && getAutonomy() > 0 && vehicleWithEngine != "VehicleWithEngine") {
-            return "Pas assez d'autonomie";
-        } else return "Vroum";
+        return name + " roule sur " + km;
     }
 
     public Vehicle() {

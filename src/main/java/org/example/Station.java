@@ -8,16 +8,24 @@ public class Station {
     public Station(String name) {
         this.name = name;
     }
-    public String fillUpVehicle(VehicleWithEngine vehicleToRefuel) {
-        vehicleToRefuel.setAutonomy(vehicleToRefuel.getMaxAutonomy());
-        String name = vehicleToRefuel.getName();
-        int km = vehicleToRefuel.getMaxAutonomy();
+//    public String fillUpVehicle(VehicleWithEngine vehicleToRefuel) {
+//        vehicleToRefuel.setAutonomy(vehicleToRefuel.getMaxAutonomy());
+//        String name = vehicleToRefuel.getName();
+//        int km = vehicleToRefuel.getMaxAutonomy();
+//
+//        String message = "thermal".equals(vehicleToRefuel.getTypeOfEngine())
+//                ? "La %s fait le plein et repart pour ses %d km."
+//                : "La %s se recharge pour ses %d km.";
+//
+//        return String.format(message, name, km);
+//    }
 
-        String message = "thermal".equals(vehicleToRefuel.getTypeOfEngine())
-                ? "La %s fait le plein et repart pour ses %d km."
-                : "La %s se recharge pour ses %d km.";
 
-        return String.format(message, name, km);
+    public void charge(ElectricVehicle vehicle){
+        vehicle.recharge();
     }
 
+    public void fuel(ThermalVehicle vehicle){
+        vehicle.refuel();
+    }
 }

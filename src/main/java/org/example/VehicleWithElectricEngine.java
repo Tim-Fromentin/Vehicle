@@ -7,4 +7,6 @@ public class VehicleWithElectricEngine extends VehicleWithEngine{
         this.setAutonomy(autonomy);
         this.setMaxAutonomy(maxAutonomy);
     }
+
+
 }
