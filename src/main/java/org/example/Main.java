@@ -16,22 +16,36 @@ public class Main {
 //        Zero : 120 km au départ, 180 max, électrique
 //        Vélo : pas d'autonomie, il a ses jambes
 
+        // new station
+        Station stationTours = new Station("Station de tours");
+
         ThermalCar clio = new ThermalCar("Clio", 150, 700);
-        System.out.printf("%s : %s km au départ, %s max, essence\n", clio.getName(), clio.getAutonomy(), clio.getMaxAutonomy());
+        System.out.printf("%s : %s km au départ, %s max, essence %s.\n", clio.getName(), clio.getAutonomy(), clio.getMaxAutonomy(), clio.getTypeOfEngine());
+        stationTours.fillUpVehicle(clio);
+        System.out.printf("%s : %s km au départ, %s max, essence %s.\n", clio.getName(), clio.getAutonomy(), clio.getMaxAutonomy(), clio.getTypeOfEngine());
+
         ElectricCar tesla = new ElectricCar("Tesla", 80, 500);
-        System.out.printf("%s : %s km au départ, %s max, essence\n", tesla.getName(), tesla.getAutonomy(), tesla.getMaxAutonomy());
+//        System.out.printf("%s : %s km au départ, %s max, autonomie\n", tesla.getName(), tesla.getAutonomy(), tesla.getMaxAutonomy());
 
         ThermalMotorbike zero = new ThermalMotorbike("Zero", 120, 180);
-        System.out.printf("%s : %s km au départ, %s max, essence\n", zero.getName(), zero.getAutonomy(), zero.getMaxAutonomy());
+//        System.out.printf("%s : %s km au départ, %s max, essence\n", zero.getName(), zero.getAutonomy(), zero.getMaxAutonomy());
 
         Bicycle bicycle = new Bicycle("Vélo");
-        System.out.printf("%s : pas d'autonomie, il a ses jambes\n", bicycle.getName());
+//        System.out.printf("%s : pas d'autonomie, il a ses jambes\n", bicycle.getName());
 
         List<Vehicle> allVehicle = List.of(clio, tesla, zero, bicycle);
-
+        List<VehicleWithEngine> allVehicleWithEngine = List.of(clio, tesla, zero);
         for (int i = 0; i < allVehicle.size(); i++){
             Vehicle vehicle = allVehicle.get(i);
             System.out.println(vehicle.getName() + vehicle.drive(80));
         }
+
+
+        for (int i = 0; i < allVehicleWithEngine.size(); i++){
+            VehicleWithEngine vehicle = allVehicleWithEngine.get(i);
+            System.out.println(stationTours.fillUpVehicle(vehicle));
+        }
+
+
     }
 }

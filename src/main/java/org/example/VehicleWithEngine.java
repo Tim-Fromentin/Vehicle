@@ -27,5 +27,14 @@ public class VehicleWithEngine  extends Vehicle {
         this.setMaxAutonomy(maxAutonomy);
     }
 
+    public String getTypeOfEngine(){
+        String vehicleWithEngine = this.getClass().getSuperclass().getSimpleName();
+        if (vehicleWithEngine.equals("ThermalVehicle")){
+            return "thermal";
+        } else {
+            return "electric";
+        }
+    }
+
 
 }
