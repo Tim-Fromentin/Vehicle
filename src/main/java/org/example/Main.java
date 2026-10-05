@@ -2,7 +2,12 @@ package org.example;
 
 import org.example.cars.ElectricCar;
 import org.example.cars.ThermalCar;
+import org.example.motorbikes.ElectricMotorbike;
 import org.example.motorbikes.ThermalMotorbike;
+import org.example.vehicles.Btwin;
+import org.example.vehicles.Clio;
+import org.example.vehicles.Tesla;
+import org.example.vehicles.Zero;
 
 import java.util.List;
 
@@ -11,44 +16,38 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-//        Clio : 150 km au départ, 700 max, essence
-//        Tesla : 80 km au départ, 500 max, électrique
-//        Zero : 120 km au départ, 180 max, électrique
-//        Vélo : pas d'autonomie, il a ses jambes
 
         // new station
         Station stationTours = new Station("Station de tours");
 
-        ThermalCar clio = new ThermalCar("Clio", 150, 700);
-//        System.out.printf("%s : %s km au départ, %s max, essence.\n", clio.getName(), clio.getAutonomy(), clio.getMaxAutonomy());
-//        stationTours.fillUpVehicle(clio);
-//        System.out.printf("%s : %s km au départ, %s max, essence.\n", clio.getName(), clio.getAutonomy(), clio.getMaxAutonomy());
+        Clio clio = new Clio(150);
 
-        ElectricCar tesla = new ElectricCar("Tesla", 80, 500);
-//        System.out.printf("%s : %s km au départ, %s max, autonomie\n", tesla.getName(), tesla.getAutonomy(), tesla.getMaxAutonomy());
-//        stationTours.charge(tesla);
-//        System.out.printf("%s : %s km au départ, %s max, autonomie\n", tesla.getName(), tesla.getAutonomy(), tesla.getMaxAutonomy());
+        Tesla tesla = new Tesla(80);
 
-        ThermalMotorbike zero = new ThermalMotorbike("Zero", 120, 180);
-//        System.out.printf("%s : %s km au départ, %s max, essence\n", zero.getName(), zero.getAutonomy(), zero.getMaxAutonomy());
+        Zero zero = new Zero(120);
 
-        Bicycle bicycle = new Bicycle("Vélo");
-//        System.out.printf("%s : pas d'autonomie, il a ses jambes\n", bicycle.getName());
+        Btwin btwin = new Btwin();
 
-        List<Vehicle> allVehicle = List.of(clio, tesla, zero, bicycle);
-        List<ThermalVehicle> allVehicleWithThermalEngine = List.of(clio, zero);
-        for (int i = 0; i < allVehicle.size(); i++){
-            Vehicle vehicle = allVehicle.get(i);
+        List<Vehicle> allVehicle = List.of(clio, tesla, zero, btwin);
+        List<ThermalVehicle> allVehicleWithThermalEngine = List.of(clio);
+        List<ElectricVehicle> allVehicleWithElectricEngine = List.of(tesla, zero);
+
+        for (Vehicle vehicle : allVehicle) {
             System.out.println(vehicle.drive(80));
         }
-//
-//
-//        for (int i = 0; i < allVehicleWithThermalEngine.size(); i++){
-//            ThermalVehicle vehicle = allVehicleWithThermalEngine.get(i);
-//            System.out.println("avant" + vehicle.getAutonomy());
-//            stationTours.fuel(vehicle);
-//            System.out.println("apres" + vehicle.getAutonomy());
-//        }
+
+
+        for (ThermalVehicle vehicle : allVehicleWithThermalEngine) {
+            System.out.println("avant " + vehicle.getAutonomy());
+            stationTours.fuel(vehicle);
+            System.out.println("apres " + vehicle.getAutonomy());
+        }
+
+        for (ElectricVehicle vehicle : allVehicleWithElectricEngine) {
+            System.out.println("avant " + vehicle.getAutonomy());
+            stationTours.charge(vehicle);
+            System.out.println("apres " + vehicle.getAutonomy());
+        }
 
 
     }
