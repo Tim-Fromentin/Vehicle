@@ -1,6 +1,6 @@
 package org.example.vehicles;
 
-import org.example.Bicycle;
+import org.example.typeOfVehicles.Bicycle;
 
 public class Btwin extends Bicycle {
     public Btwin(){

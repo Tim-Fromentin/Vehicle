@@ -1,4 +1,4 @@
-package org.example.cars;
+package org.example.typeOfVehicles;
 
 import org.example.VehicleWithEngine;
 

@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.interfaces.Rechargeable;
+import org.example.interfaces.Refuelable;
+
 public class Station {
 
 
@@ -10,11 +13,11 @@ public class Station {
     }
 
 
-    public void charge(ElectricVehicle vehicle) {
+    public void charge(Rechargeable vehicle) {
         vehicle.recharge();
     }
 
-    public void fuel(ThermalVehicle vehicle) {
+    public void fuel(Refuelable vehicle) {
         vehicle.refuel();
     }
 }

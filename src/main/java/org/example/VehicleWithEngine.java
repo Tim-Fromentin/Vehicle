@@ -35,8 +35,8 @@ public class VehicleWithEngine  extends Vehicle {
         autonomy -= km;
         return getName() + " roule sur " + km;
     }
-
-
-
+    protected void fillToMax(){
+       autonomy = maxAutonomy;
+    }
 
 }
